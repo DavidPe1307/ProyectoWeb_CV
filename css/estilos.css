@@ -1,0 +1,53 @@
+body{
+    background: rgb(255, 255, 255);
+}
+header{
+    position: relative; 
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+}
+nav{
+    position: relative; 
+    margin: auto;
+    width: auto;
+    height: auto;
+    background: rgb(113, 5, 5);
+    text-align: center;
+    padding: 10px;
+}
+ul{
+    position: relative;
+    margin: auto;
+    width: 50%;
+    text-align: none;
+}
+li{
+    display: inline-block;
+    margin: auto;
+    width: 20%;
+    line-height: 50px;
+    color: rgb(251, 255, 207);
+    list-style: none;
+}
+a{
+    color: rgb(251, 255, 207);
+    text-decoration: none;
+   
+}
+article{
+    position: relative;
+    padding: 10px;
+}
+footer {
+    background: rgb(113, 5, 5);
+    padding: 10px;
+    position: relative;
+    color: rgb(251, 255, 207);
+    text-align: center;
+}
+.estilo-letra{
+    color: blue;
+    font-size: large;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
