@@ -1,9 +1,9 @@
 <?php
     include "conexion.php";
 
-    $proId = $_POST["proID"];
+    $proId = $_POST["proId"];
 
-    $sqlDelete = "DELETE FROM productos WHERE id='$proId'";
+    $sqlDelete = "DELETE FROM productos WHERE proId='$proId'";
 
     $respuesta = $conn->query($sqlDelete);
 

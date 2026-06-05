@@ -73,3 +73,38 @@
 
     
 </html>
+<?php
+if (isset($_POST["Registrar"])) {
+    $cedula      = $_POST["Cedula"];
+    $nombre      = $_POST["Nombre"];
+    $apellido    = $_POST["Apellido"];
+    $correo      = $_POST["Correo"];
+    $telefono    = $_POST["Telefono"];
+    $direccion   = $_POST["Direccion"];
+    $contrasena  = $_POST["Contrasena"];
+    $confirmar   = $_POST["ConfirmarContrasena"];
+
+    if ($contrasena !== $confirmar) {
+        $errorRegistro = "Las contraseñas no coinciden.";
+    } else {
+        $resultado = UsuarioModel::registrar($cedula, $nombre, $apellido, $correo, $telefono, $direccion, $contrasena);
+        if ($resultado) {
+            $exitoRegistro = "Registro exitoso. Ya puedes iniciar sesión.";
+        } else {
+            $errorRegistro = "Error al registrar. El correo ya puede estar en uso.";
+        }
+    }
+}
+if ($usuario) {
+    $_SESSION["usuario_id"]     = $usuario["usuId"];
+    $_SESSION["usuario_nombre"] = $usuario["usuNombre"];
+    $_SESSION["usuario_rol"]    = $usuario["usuRol"];
+
+    if ($usuario["usuRol"] == "admin") {
+        header("Location: index.php?opcion=producto");
+    } else {
+        header("Location: index.php?opcion=servicios");
+    }
+    exit();
+}
+?>

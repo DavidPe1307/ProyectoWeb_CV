@@ -4,10 +4,11 @@
     $proNombre      = $_POST["proNombre"];
     $proDescripcion = $_POST["proDescripcion"];
     $proPrecio      = $_POST["proPrecio"];
+    $proStock       = $_POST["proStock"];
     $proImagen      = $_POST["proImagen"];
 
-    $sqlInsert = "INSERT INTO productos (nombre, descripcion, precio, imagen) 
-                  VALUES ('$proNombre', '$proDescripcion', '$proPrecio', '$proImagen')";
+    $sqlInsert = "INSERT INTO productos (proNombre, proDescripcion, proPrecio, proStock, proImagen)
+                  VALUES ('$proNombre', '$proDescripcion', '$proPrecio', '$proStock', '$proImagen')";
 
     $respuesta = $conn->query($sqlInsert);
 
