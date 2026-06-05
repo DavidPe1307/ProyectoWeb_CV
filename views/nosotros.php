@@ -42,8 +42,31 @@
                 </div>
                 <input type="submit" class="btn" name="Registrar" value="Registrar">
             </form>
-                <p class="or">
-
+            <div class="registrarse">
+                <p>¿Ya tienes una cuenta?</p>
+                <button id="btnIniciarSesion">Iniciar sesión</button>
+            </div>  
+        </div>
+        <div class="container" id="iniciarSesion">
+            <h1> Iniciar sesión </h1>
+             <p>Bienvenido, ingrese sus datos para iniciar sesión.</p>
+              <form method="POST" action="">
+                
+                <div class="iniciar_datos">
+                    <input type="text" name="Correo" id="usuCorreo" placeholder="Ingrese su correo" required> 
+                    <label for="usuCorreo" >Correo</label>
+                
+                <div class="iniciar_datos">
+                    <input type="password" name="Contraseña" id="usuContraseña" placeholder="Ingrese su contraseña" required> 
+                    <label for="usuContraseña" >Contraseña</label>
+                </div>
+               
+                <input type="submit" class="btn" name="IniciarSesion" value="Iniciar sesión">
+            </form>
+            <div class="registrarse">
+                <p>¿No tienes cuenta?</p>
+                <button id="btnRegistrarSesion">Registrarte</button>
+            </div>  
         </div>
 
     </body>
