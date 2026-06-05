@@ -1,19 +1,33 @@
 <?php 
-    class ModeloEnlacesPaginas{
-        public static function EnlacesPaginasModelo($module){
+class ModeloEnlacesPaginas {
+    public static function EnlacesPaginasModelo($module) {
 
-            if ($module == "inicio" 
-            || $module == "servicios" 
-            || $module == "contactanos"
-            || $module == "nosotros") {
-                $pagina = "views/" .$module. ".php";
+        $paginasPublicas = ["inicio", "nosotros", "contactanos", "logout"];
+        $paginasCliente  = ["servicios"];
+        $paginasAdmin    = ["producto"];
+
+        if (in_array($module, $paginasPublicas)) {
+            $pagina = "views/" . $module . ".php";
+
+        } elseif (in_array($module, $paginasCliente)) {
+            if (isset($_SESSION["usuario_rol"]) && $_SESSION["usuario_rol"] === "cliente") {
+                $pagina = "views/" . $module . ".php";
+            } else {
+                $pagina = "views/nosotros.php"; // redirige al login
             }
-            else {
-                $pagina = "views/inicio.php";
+
+        } elseif (in_array($module, $paginasAdmin)) {
+            if (isset($_SESSION["usuario_rol"]) && $_SESSION["usuario_rol"] === "admin") {
+                $pagina = "views/" . $module . ".php";
+            } else {
+                $pagina = "views/nosotros.php";
             }
-            return $pagina;
+
+        } else {
+            $pagina = "views/inicio.php";
         }
+
+        return $pagina;
     }
-
-
+}
 ?>

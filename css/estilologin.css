@@ -1,19 +1,212 @@
-*{margin:0;
-padding:0;
-box-sizing:border-box;
-font-family: 'Poppins', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SOLO estilos de nosotros.php (login/register)
+   NO toca body, nav, header, footer, ul, li, a
+   del template global.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── ZONA DE FORMULARIOS ── */
+/* Centra el/los .container dentro del <body> que ya viene del template */
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 140px); /* descuenta nav + footer aprox */
+    padding: 30px 16px;
+    background: rgb(245, 242, 235);
 }
-body{
-    background: rgb(255, 255, 255);
+
+/* ── CONTENEDOR TARJETA ── */
+.container {
+    background: #fff;
+    width: 100%;
+    max-width: 460px;
+    padding: 2.4rem 2.4rem 1.8rem;
+    border-radius: 12px;
+    border-top: 4px solid rgb(113, 5, 5);
+    box-shadow:
+        0 4px 8px  rgba(113, 5, 5, 0.07),
+        0 18px 36px rgba(113, 5, 5, 0.11);
+    font-family: 'Poppins', sans-serif;
+    animation: loginFadeIn 0.35s ease;
 }
-.container{
-    background: rgb(255, 255, 255);
-    widthh:450px;
-    padding:1.5 rem;
-    margin: 50px auto;
-    border-radius:10px;
-    box-shadow:0 20px 35px rgba(0,0,0,0.1);
+
+@keyframes loginFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
-form{
-    margin:0 2rem;
+
+/* ── TÍTULOS ── */
+.container h1 {
+    color: rgb(113, 5, 5);
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+    letter-spacing: -0.3px;
+}
+
+.container > p {
+    color: #777;
+    font-size: 0.87rem;
+    margin: 0 0 1.6rem;
+}
+
+/* ── MENSAJES DE ERROR / ÉXITO ── */
+.mensaje {
+    font-size: 0.85rem;
+    font-family: 'Poppins', sans-serif;
+    padding: 0.55rem 0.9rem;
+    border-radius: 7px;
+    margin-bottom: 1rem;
+}
+
+.mensaje.error {
+    background: rgb(255, 235, 235);
+    color: rgb(140, 10, 10);
+    border-left: 3px solid rgb(113, 5, 5);
+}
+
+.mensaje.exito {
+    background: rgb(234, 255, 234);
+    color: rgb(20, 110, 20);
+    border-left: 3px solid rgb(30, 140, 30);
+}
+
+/* ── FORMULARIO ── */
+.container form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+    margin: 0;
+}
+
+/* ── GRUPOS DE CAMPO ── */
+.registro_datos,
+.iniciar_datos {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 3px;
+}
+
+/* ── LABELS ── */
+.registro_datos label,
+.iniciar_datos label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgb(113, 5, 5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+}
+
+/* ── INPUTS ── */
+.registro_datos input,
+.iniciar_datos input {
+    width: 100%;
+    padding: 0.62rem 0.9rem;
+    border: 1.5px solid #ddd;
+    border-radius: 7px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    background: rgb(252, 250, 246);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.registro_datos input:focus,
+.iniciar_datos input:focus {
+    border-color: rgb(113, 5, 5);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(113, 5, 5, 0.09);
+}
+
+.registro_datos input:focus ~ label,
+.iniciar_datos input:focus ~ label {
+    color: rgb(150, 8, 8);
+}
+
+.registro_datos input::placeholder,
+.iniciar_datos input::placeholder {
+    color: #bbb;
+    font-size: 0.86rem;
+}
+
+/* ── BOTÓN SUBMIT ── */
+.container .btn {
+    width: 100%;
+    padding: 0.72rem;
+    margin-top: 0.4rem;
+    background: rgb(113, 5, 5);
+    color: rgb(251, 255, 207);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.93rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.container .btn:hover {
+    background: rgb(140, 8, 8);
+    box-shadow: 0 4px 14px rgba(113, 5, 5, 0.28);
+    transform: translateY(-1px);
+}
+
+.container .btn:active {
+    background: rgb(88, 3, 3);
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* ── PIE "¿YA TIENES CUENTA?" ── */
+.registrarse {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1.3rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid #ede8e8;
+}
+
+.registrarse p {
+    font-family: 'Poppins', sans-serif;
+    color: #888;
+    font-size: 0.84rem;
+    margin: 0;
+}
+
+.registrarse button {
+    background: transparent;
+    color: rgb(113, 5, 5);
+    border: 1.5px solid rgb(113, 5, 5);
+    padding: 0.35rem 1rem;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.84rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.registrarse button:hover {
+    background: rgb(113, 5, 5);
+    color: rgb(251, 255, 207);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 520px) {
+    .container {
+        padding: 1.7rem 1.3rem 1.4rem;
+    }
+
+    .container h1 {
+        font-size: 1.3rem;
+    }
 }
