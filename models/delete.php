@@ -1,15 +1,15 @@
 <?php
     include "conexion.php";
-    $proId=$_GET["proID"];  //para borrar lo mas facil es hacerlo por get 
 
-    $sqlDelete = "delete from producto where proID='$proId'";
+    $proId = $_POST["proID"];
+
+    $sqlDelete = "DELETE FROM productos WHERE id='$proId'";
+
     $respuesta = $conn->query($sqlDelete);
 
-    if ($respuesta == TRUE){
-
-        echo("Se borro el producto");
+    if ($respuesta == TRUE) {
+        echo "Se eliminó el producto correctamente.";
     } else {
-        echo("no se borro el producto");
+        echo "Error al eliminar: " . $conn->error;
     }
-    
 ?>
